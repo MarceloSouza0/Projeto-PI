@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript</title>
+    </head>
+    <body>
+        <p id="resposta">Resposta: 0</p>
+        <div>
+            <button onClick="digitos(0)">0</button>
+            <button onClick="digitos(1)">1</button>
+            <button onClick="digitos(2)">2</button>
+            <button onClick="digitos(3)">3</button>
+            <button onClick="digitos(4)">4</button>
+            <button onClick="digitos(5)">5</button>
+            <button onClick="digitos(6)">6</button>
+            <button onClick="digitos(7)">7</button>
+            <button onClick="digitos(8)">8</button>
+            <button onClick="digitos(9)">9</button>
+        </div>
+        <div>
+            <button onClick="FuncaoOperacao('+')">+</button>
+            <button onClick="FuncaoOperacao('-')">-</button>
+            <button onclick="resultado('operacao')">Resposta</button>
+        </div>
+        <script>
+            let valor1 = "";
+            let valor2 = "";
+            let operacao = null;
+            let resposta = 0;
+            function digitos(digito){
+                if(!operacao){
+                    valor1 = valor1 + digito;
+                    atualizaTela(valor1);
+                }
+                else {
+                    valor2 = valor2 + digito;
+                    atualizaTela(valor2);
+                }
+            }
+            function FuncaoOperacao(op){
+                operacao = op;            
+                atualizaTela(valor2);
+            }
+            function resultado(){
+                if( operacao == '+' ){
+                    resposta = parseFloat(valor1) + parseFloat(valor2)
+                    atualizaTela(resposta);  
+                } else if ( operacao == '-' ){
+                    resposta = parseFloat(valor1) - parseFloat(valor2)
+                    atualizaTela(resposta);  
+                }
+            }
+        function atualizaTela(ValorEmTela){
+            document.getElementById("resposta").innerText = "resposta: " + ValorEmTela;
+        }
+    </script>
+</body>
+</html>
