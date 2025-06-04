@@ -3,34 +3,101 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  color: #c2c2c2;
 }
 
 main {
-  background-color: black;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: rgb(194, 194, 194);
 }
 
-#projeto h1{
-  color: white;
-  margin: 20px;
+section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background: #111; /* leve tom mais claro que o fundo para destacar */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
 }
+
+section h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ff00d4;
+  padding-bottom: 0.3rem;
+}
+
+section h3 {
+  color: #ff00d4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+
+section h4 {
+  color: #ff00d4;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+section h5 {
+  color: #ff00d4;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin-left: 1.3rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+}
+
+ul li {
+  margin-bottom: 0.4rem;
+}
+
+code {
+  background-color: #222;
+  color: #f876e2;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  margin: 0.8rem auto;
+}
+
+/* Ajustes para seu container canvas e botão play */
 
 #canvas-container {
-  position: relative; /* ESSENCIAL para o botão ficar sobre o canvas */
+  position: relative; /* essencial para posicionar botão */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto; /* Centraliza horizontalmente */
+  margin: 0 auto;
 }
-
 
 #canvas-container canvas {
   width: 100%;
@@ -47,16 +114,23 @@ main {
   transform: translate(-50%, -50%);
   font-size: 2rem;
   padding: 1rem 2rem;
-  background-color: #007bff;
+  background-color: #0400ff;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+#play-button:hover {
+  background-color: #b300aa;
 }
 
 
-#play-button:hover {
-  background-color: #0056b3;
+footer {
+  background-color: #222;
+  padding: 20px 10px 10px 10px;
+
 }
