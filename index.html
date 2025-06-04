@@ -42,8 +42,48 @@
                 <script src="sketch.js"></script>
             </div>
         </section>
+        <section>
+            <div>
+                <h2>Análise Completa</h2>
+                <h3>Primeiro passo: Desenhar a Lua</h3>
+                <p>
+                    Como desenhamos a lua? Você deve estar se perguntando... A lua foi criada dentro de uma função chamada <code>desenharLua()</code>, justamente para facilitar seu uso sempre que for necessário chamá-la no programa.
+                </p>
+                <p>
+                    A lógica da lua é bem simples: primeiro desenhamos um círculo claro (em tom bege), representando a lua cheia. Em seguida, desenhamos um segundo círculo um pouco menor e com a cor do fundo (um azul escuro), ligeiramente deslocado para a direita. 
+                </p>
+                <p>
+                    Esse segundo círculo fica sobreposto ao primeiro, criando um efeito visual que simula a fase minguante da lua — como se uma parte dela estivesse escondida pela sombra.
+                </p>
+                <h4>Código Utilizado:</h4>
+            </div>
+            <div>
+                <img src="images/imgLua.jpg" alt="codigo da Chuva">
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Segundo passo: Criar as Estrelas</h3>
+                <p>As estrelas foram criadas para dar um toque mais realista ao cenário noturno. Mas como isso foi feito?</p>
+                <p>Primeiro, criamos um array chamado <code>estrelas</code> e decidimos que o total de estrelas seria 200.</p>
+                <p>Dentro da função <code>setup()</code>, usamos um laço <code>for</code> para gerar essas 200 estrelas, onde cada uma recebe:</p>
+                <ul>
+                <li><strong>estrelaX</strong>: posição horizontal aleatória na tela</li>
+                <li><strong>estrelaY</strong>: posição vertical aleatória</li>
+                <li><strong>brilhoEstrela</strong>: valor de brilho aleatório entre 100 e 255</li>
+                <li><strong>tamanhoEstrela</strong>: tamanho aleatório entre 1 e 2 pixels</li>
+                </ul>
+                <p>Depois disso, criamos uma função chamada <code>desenharEstrela()</code>, que desenha cada estrela na tela com <code>fill</code> no valor do brilho dela e um <code>circle()</code> com o tamanho definido.</p>
+                <p>Por fim, chamamos essa função dentro do <code>draw()</code>, junto com a lua e a chuva, para que as estrelas apareçam sempre que o cenário for desenhado.</p>
+                <h4>Código Utilizado:</h4>
+            </div>
+            <div>
+                <img src="images/letEstrelas.jpg" alt="codigo da estrela (let)">
+                <img src="images/functionDesenharEstrela.jpg" alt="funcao de desenhar estrela">
+                <img src="images/criarEstrelas.jpg" alt="">
+            </div>
+        </section>
     </main>
-
 <footer id="sobre">
     <p>Feito por: Marcelo Paulino e Davi Lucas — 2025 (Para SenacSP - BCC > Projeto Integrador)</p>
 </footer>

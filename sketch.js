@@ -1,9 +1,50 @@
+// Estrelas
 let estrelas = [], totalEstrelas = 200;
+
+// Chuva
 let gotas = [], totalGotas = 300;
 let chuvaSom;
-let aviao;
-let aviaoX = 750;
-let aviaoY = 550;
+
+// Lua
+function desenharLua() {
+  let x = 100;
+  let y = 100;
+  let raio = 80;
+  
+  fill(245, 245, 220);
+  noStroke();
+  circle(x, y, raio);
+  
+  fill(17, 26, 51);
+  circle(x + 16, y, 70);
+}
+
+function desenharEstrela() {
+  for (let i = 0; i < totalEstrelas; i++) {
+    let estrela = estrelas[i];
+    fill(estrela.brilhoEstrela);
+    noStroke();
+    circle(estrela.estrelaX, estrela.estrelaY, estrela.tamanhoEstrela);
+  }
+}
+
+// Chuva
+function desenharChuva() {
+  strokeWeight(1);
+  stroke(102, 170, 255);
+  for (let i = 0; i < totalGotas; i++) {
+    let chuva = gotas[i];
+    line(chuva.gotasX, chuva.gotasY, chuva.gotasX, chuva.gotasY + chuva.cumprimentoGotas);
+    chuva.gotasY += chuva.veloGotas;
+    
+    if (chuva.gotasY > height){
+      chuva.gotasY = 0;
+      chuva.gotasX = random(width);
+    }
+  }
+}
+
+// Raio
 let raio = [];
 let raioX = 0;
 let raioY = 0;
@@ -11,12 +52,9 @@ let tempoUltimoRaio = 0;
 let intervaloRaio = 1000;
 let mostrarRaio = false;
 let tempoRaio = 0;
-let passos;
-raio.push({raioX, raioY});
 let flash = false;
 let tempoFlash = 0;
-let iniciou = false;
-let canvas;
+raio.push({raioX, raioY});
 
 function gerarRaio(xInicial = random(width)) {
   raioSom.play();
@@ -36,7 +74,6 @@ function gerarRaio(xInicial = random(width)) {
 }
 
 function desenharRaio() {
-
   stroke(0, 204, 255);
   strokeWeight(2);
   noFill();
@@ -44,12 +81,20 @@ function desenharRaio() {
   beginShape();
   for (let i = 0; i < raio.length; i++) {
     vertex(raio[i].x, raio[i].y);
-}
+  }
   endShape();
 }
 
+// Outros
+let aviao;
+let aviaoX = 750;
+let aviaoY = 550;
+let passos;
+let iniciou = false;
+let canvas;
+
 function mousePressed(){
-    if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
     gerarRaio(mouseX);
     mostrarRaio = true;
     tempoRaio = millis();
@@ -57,43 +102,6 @@ function mousePressed(){
     flash = true;
     tempoFlash = millis();
   }
-}
-
-function desenharEstrela() {
-  for (let i = 0; i < totalEstrelas; i++) {
-    let estrela = estrelas[i];
-    fill(estrela.brilhoEstrela);
-    noStroke();
-    circle(estrela.estrelaX, estrela.estrelaY, estrela.tamanhoEstrela);
-  }
-}
-
-function desenharChuva() {
-  strokeWeight(1);
-  stroke(102, 170, 255);
-  for (let i = 0; i < totalGotas; i++) {
-    let chuva = gotas[i];
-    line(chuva.gotasX, chuva.gotasY, chuva.gotasX, chuva.gotasY + chuva.cumprimentoGotas);
-    chuva.gotasY += chuva.veloGotas;
-    
-    if (chuva.gotasY > height){
-      chuva.gotasY = 0;
-      chuva.gotasX = random(width);
-    }
-  }
-}
-
-function desenharLua() {
-  let x = 100;
-  let y = 100;
-  let raio = 80;
-  
-  fill(245, 245, 220);
-  noStroke();
-  circle(x, y, raio);
-  
-  fill(17, 26, 51);
-  circle(x + 16, y, 70);
 }
 
 function preload() {
@@ -108,7 +116,6 @@ function setup() {
   canvas.parent("canvas-container");
   noLoop();
   passos = height / 20;
-
 
   chuvaSom.setVolume(0.3);
   aviaoSom.setVolume(0.1);
